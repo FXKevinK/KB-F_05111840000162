@@ -10,7 +10,7 @@ Departemen Teknik Informatika - FTEIC ITS
 
 ## 1. Tic Tac Toe - Algoritma Minimax
 
-Source Code: [Tic Tac Toe](#https://github.com/FXKevinK/KB-F_05111840000162/tree/master/Tic%20Tac%20Toe)
+
 
 Kembali ke: [Daftar Isi](#daftar-isi)
 

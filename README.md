@@ -10,6 +10,8 @@ Departemen Teknik Informatika - FTEIC ITS
 
 ## 1. Tic Tac Toe - Algoritma Minimax
 
+Source Code:
+
 Kembali ke: [Daftar Isi](#daftar-isi)
 
 ## 2. 4 Queen - CSP (Constraint Satisfaction Problems)

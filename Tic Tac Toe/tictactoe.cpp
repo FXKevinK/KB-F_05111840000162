@@ -1,3 +1,5 @@
+//Source: https://gist.github.com/MatthewSteel/3158579
+
 #include <stdio.h>
 
 char gridChar (int i){

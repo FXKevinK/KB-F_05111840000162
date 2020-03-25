@@ -5,7 +5,7 @@
 Departemen Teknik Informatika - FTEIC ITS
 
 ## Daftar Isi
-1. [Tic Tac Toe](#1.tic-tac-toe-algoritma-minimax)
+1. [Tic Tac Toe](https://github.com/FXKevinK/KB-F_05111840000162/blob/master/README.md#1-tic-tac-toe---algoritma-minimax)
 2. [4 Queen (CSP)](#2.4-queen-CSP-(constraint-satisfaction-problems))
 
 ## 1. Tic Tac Toe - Algoritma Minimax

@@ -82,16 +82,16 @@ Namun jika dilihat lebih lanjut, fungsi berikut akan lebih baik.
 while (move> = 9 || move <0 || board [move]! = 0);
 ```
 
-Di loop sementara pertama akandiberikan dua kondisi.
+Di loop sementara pertama akan diberikan dua kondisi:
 
 * Jika perpindahan lebih besar dari ATAU SAMA dengan 9, bernilai tidak valid.
-* Jika langkah KURANG DARI 0 DAN ruang yang dipilih adalah 0 (yang berarti tidak dihuni dalam kasus ini), juga bernilai tidak valid
+* Jika langkah kurang dari 0 dan ruang yang dipilih adalah 0 atau kondisi state pada papan kosong, juga bernilai tidak valid
 
-Meskipun sedikit membingungkan, pengguna harus dapat menempatkan sesuatu di sana. Berikut adalah kondisi yang menyatakan while.
+Meskipun sedikit membingungkan, pengguna harus dapat menempatkan sesuatu di sana. Berikut adalah kondisi yang menyatakan while:
 
-* Jika perpindahan lebih besar dari ATAU SAMA dengan 9, bernilai tidak valid.
-* Jika langkah KURANG DARI 0, bernilai tidak valid
-* Jika pindah TIDAK SAMA DENGAN 0 (artinya tidak dihuni), bernilai tidak valid.
+* Jika perpindahan lebih besar dari atau sama dengan 9, bernilai tidak valid.
+* Jika langkah kurang dari 0, bernilai tidak valid
+* Jika perpindahan tidak sama dengan 0 (artinya tidak dihuni), bernilai tidak valid.
 
 Contoh Implementasi
 
@@ -107,8 +107,9 @@ Meskipun langkah A lebih baik karena memastikan kemenangan yang lebih cepat, alg
 
 Sekarang karena langkah A memiliki skor yang lebih tinggi dibandingkan dengan langkah B, algoritma akan memilih langkah A di atas langkah B. Hal yang sama harus diterapkan pada minimizer. Alih-alih mengurangi kedalaman, ditambahkan nilai kedalaman karena minimizer selalu mencoba untuk mendapatkan nilai senegatif mungkin.
 
+Ilistrasi implementasi algoritma minimax:
 
-
+![tttminimax](https://user-images.githubusercontent.com/58078219/77514002-944f2f80-6ea8-11ea-899f-9f04e084210f.png)
 
 Kembali ke: [Daftar Isi](#daftar-isi)
 
@@ -125,3 +126,4 @@ Kembali ke: [Daftar Isi](#daftar-isi)
 * https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-2-evaluation-function/
 * https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
 * https://gist.github.com/MatthewSteel/3158579
+* https://www.geeksforgeeks.org/n-queen-in-on-space/

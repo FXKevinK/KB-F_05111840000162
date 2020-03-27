@@ -115,7 +115,7 @@ Kembali ke: [Daftar Isi](#daftar-isi)
 
 ## 2. 4 Queen - CSP (Constraint Satisfaction Problems)
 
-[Source Code](https://github.com/FXKevinK/KB-F_05111840000162/tree/master/4%20Queen) 4 Queen
+[Source Code](https://github.com/FXKevinK/KB-F_05111840000162/tree/master/4%20Queen) 4 Queen adalah suatu
 
 Kembali ke: [Daftar Isi](#daftar-isi)
 

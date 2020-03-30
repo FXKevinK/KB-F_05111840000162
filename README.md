@@ -117,6 +117,92 @@ Kembali ke: [Daftar Isi](#daftar-isi)
 
 [Source Code](https://github.com/FXKevinK/KB-F_05111840000162/tree/master/4%20Queen) 4 Queen
 
+4 Queen problem merupakan suatu permasalahan untuk menempatkan 4 ratu catur pada papan catur 4 × 4 sehingga tidak ada ratu yang saling mengancam. Dengan demikian, sebuah solusi mensyaratkan bahwa tidak ada ratu berbagi baris, kolom, atau diagonal yang sama. Pendekatan yang diperlukan yaitu dengan menempatkan ratu satu per satu di kolom yang berbeda, mulai dari kolom paling kiri. Ketika ratu dalam sebuah kolom, maka diperiksa terlebih dahulu apakah terdapat bentrokan dengan ratu yang sudah ditempatkan. Di kolom saat ini, jika baris yang ditempati tidak ada bentrokan, maka baris dan kolom tersebut ditandai sebagai bagian dari solusi. Jika tidak ditemukan baris seperti baris yang dimaksudkan karena adanya bentrokan, maka akan dilakukan algoritma backtracking dan me-return `false`.
+
+Pada dasarnya, harus memastikan 4 hal berikut:
+1. Tidak ada queen yang berbagi kolom.
+2. Tidak ada queen yang berbagi baris.
+3. Tidak ada queen berbagi diagonal kanan atas ke kiri bawah.
+4. Tidak ada queen berbagi diagonal kiri atas ke kanan bawah.
+
+Penjelasan:
+
+Program 4Queen berikut memiliki bebrapa fungsi dalam menjalankan algoritmanya.
+
+Fungsi berikut berfungsi sebagai mencari penempatan pada setiap area persegi papan catur 4 × 4 untuk setiap queen.
+```C
+// Function to check queens placement 
+void nQueens (int k, int n){ 
+
+	for (int i = 1;i <= n;i++){ 
+		if (canPlace(k, i)){ 
+			arr[k] = i; 
+			if (k == n){
+				display(n); 	
+			}
+			else{
+				nQueens(k + 1, n); 
+			}
+		} 
+	} 
+} 
+```
+Berikutnya terdapat fungsi pemeriksaan area persegi yang ditempati oleh queen tersebut. Hal ini dimaksudkan sehingga tidak terjadi bentrokan antar queen yang ditempati.
+```C
+// Helper Function to check if queen can be placed 
+bool canPlace (int k, int i){ 
+	for (int j = 1;j <= k - 1;j++){ 
+		if (arr[j] == i || 
+			(abs(arr[j] - i) == abs(j - k))){
+				return false; 	
+			}
+	} 
+	return true; 
+} 
+```
+
+Setelahnya terdapat satu fungsi lagi untuk memastikan bahwa queen memiiki tempat yang sesuai untuk ditempati setelah menjalankan kedua fungsi di atas dan ditampilkan penempatannya.
+```C
+// Function to display placed queen 
+void display (int n){ 
+	cout << "\n---------------------------------\n";
+	cout << "Arrangement No. " << ++no; 
+	cout << "\n---------------------------------\n"; 
+
+	for (int i = 1; i <= n; i++){ 
+		for (int j = 1; j <= n; j++){ 
+			if (arr[i] != j) 
+				cout << "\t_"; 
+			else
+				cout << "\tQ"; 
+		} 
+		cout << endl; 
+	} 
+
+	cout << "\n---------------------------------\n"; 
+} 
+```
+Tentunya yaitu terdapat main sebagai insisasi awal jumlah queen yaitu 4.
+
+Jika kode tersebut dijalankan maka akan mengeluarkan output:
+
+![image](https://user-images.githubusercontent.com/58078219/77938843-818d8e00-72e0-11ea-9640-234ad79a0267.png)
+
+Dapat dilihat bahwa Q merupakan Queen. Program kode akan menampilkan kemungkinan mana saja Queen diletakkan:
+
+* Pada solusi pertama letak queen terdapat pada baris1-kolom2, baris3-kolom1, baris2-kolom4, baris4-kolom3. Hasil tersebut terjadi, pada queen mula-mula pada baris 1 diletakkan pada kolom 2. Queen tersebut akan menandai setiap area persegi sesuai dengan kemampuan pergerakan queen itu sendiri.
+* Pada solusi pertama letak queen terdapat pada baris1-kolom3, baris2-kolom1, baris3-kolom4, baris4-kolom2. Hasil tersebut terjadi, pada queen mula-mula pada baris 1 diletakkan pada kolom 3. Queen juga akan menandai area persegi sama seperti solusi 1.
+
+Dalam kasus ini, Queen tersebut akan menandai setiap area persegi pada baris dan kolom yang ditempatinya secara diagonal, vertikal, dan horisontal. Queen berikutnya akan menempati setiap area persegi yang masih belum ditandai oleh Queen pertama. Hal ini terus berlanjut sampai semuan Queen ditempatkan. Namun dikarenakan adanya implementasi penggunaan Constraint Satisfaction Problems, maka seandainya terdapat Queen yang tidak sesuai, algoritma yang ada akan kembali mencai perhitungan ulang terhadap area persegi yang masih bisa ditempati dengan mempertimbangkan tahap sebelum dan sesudah yang dijalankan.
+
+Dengan Implemtasi Constarint Programming (Constraint Satisfaction Problems), seperti yang sudah dijelaskan pada contoh pada poin diatas, CSP bekerja secara sistematis mencoba semua kemungkinan penempatan area persegi dalam masalah atau bentrok, untuk menemukan solusi yang layak bagi queen tersebut.
+
+CSP menggunakan metode Propagation dan bactracking sebagai pencarian kemungkinan
+
+* Propagation - Setiap kali pemecah memberikan nilai ke variabel, batas constraints menambahkan batasan pada nilai yang mungkin dari beberapa variabel yang tidak ditetapkan. Pembatasan ini menyebar ke penugasan variabel yang akan digunanakn sebagai penanda area penempatan queen. Misalnya, dalam masalah 4-queens, setiap kali pemecah menempatkan queen, maka queen lain tidak dapat ditempatkan di baris dan diagonal queen yang saat ini aktif. Propagasi dapat mempercepat pencarian secara signifikan dengan mengurangi sekumpulan nilai variabel yang harus dieksplorasi oleh pemecah.
+* Backtracking terjadi ketika solver tidak dapat memberikan nilai ke variabel berikutnya, karena kendala batas atau sudah ditemukan solusi. Dalam kedua kasus tersebut, pemecah melakukan backtracks ke tahap sebelumnya dan mengubah nilai variabel pada tahap tersebut ke nilai yang belum pernah dicoba. Dalam contoh 4-queens, berarti dimaksudkan dengan memindahkan ratu ke area persegi baru pada kolom saat ini.
+
+
 Kembali ke: [Daftar Isi](#daftar-isi)
 
 
@@ -127,3 +213,5 @@ Kembali ke: [Daftar Isi](#daftar-isi)
 * https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
 * https://gist.github.com/MatthewSteel/3158579
 * https://www.geeksforgeeks.org/n-queen-in-on-space/
+* https://www.geeksforgeeks.org/n-queen-problem-using-branch-and-bound/
+* https://developers.google.com/optimization/cp/queens
